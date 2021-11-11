@@ -1,0 +1,233 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode' Verdana, sans-serif;
+}
+
+.a{
+    text-decoration: none;
+    color: black;
+}
+
+.header{
+    grid-area: header ;
+    padding:0 20px;
+    background: #311432;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: 20px;
+    grid-template-areas: "logo busqueda iconos" ;
+
+}
+.contenedor-logo{
+    grid-area: logo;
+    display: flex;
+    align-items: center;
+}
+.contenedor-logo .boton-menu{
+    border: none;
+    padding: 10px;
+    background: none;
+    cursor: pointer;
+    color: #9867C5;
+    font-size: 18px;
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.contenedor-logo .boton-menu:hover{
+    background: #9867C5;
+    color: #311432;
+}
+
+.barra-busqueda{
+    grid-area: busqueda;
+    display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.barra-busqueda input{
+    min-width: 60%;
+    padding: 0 15px;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #710193;
+    outline: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+}
+
+.barra-busqueda button{
+    height: 35px;
+    border: 1px solid #710193;
+    border-left: none;
+    color: #9867C5;
+    background: #311432;
+    padding: 0 25px;
+    cursor: pointer;
+}
+
+.barra-busqueda button:hover{
+    background: #c67ee7;
+    color:#311432;
+}
+
+.botones-header{
+    grid-area: iconos;
+    display: flex;
+    align-items: center;
+}
+
+.botones-header button{
+    border: none;
+    padding: 10px;
+    background: none;
+    cursor: pointer;
+    color: #9867C5;
+    font-size: 18px;
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.botones-header button:hover{
+    background: #9867C5;
+    color: #311432;
+}
+
+.contenedor{
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(90PX,90px ) auto;
+    grid-template-rows: 60px auto;
+    grid-template-areas: "header header"
+                          "menu contenido";
+    transition: all .3s ease;
+
+}
+.contenedor.active{
+    grid-template-columns: minmax(300px, 18%) auto;
+}
+
+
+.menu-lateral {
+	grid-area: menu;
+	background: #fff;
+	overflow: hidden;
+}
+
+.menu-lateral a {
+	display: block;
+	padding: 15px 35px;
+	color: rgb(48, 13, 37);
+	min-width: 800px;
+}
+
+.menu-lateral a:hover {
+	background:#c67ee7;
+}
+
+.menu-lateral a.active {
+	background: #9867C5;
+	font-weight: bold;
+}
+
+.menu-lateral .fas {
+	color: #311432;
+	margin-right: 32px;
+	width: 20px;
+	text-align: center;
+}
+
+.menu-lateral a.active .fas {
+	color: #470a49;
+}
+
+.menu-lateral hr {
+	margin: 20px 0;
+	border: 1px solid #dfdfdf;
+}
+
+
+.main .titulo{
+    margin-bottom: 20px;
+}
+
+.main .grid-videos {
+	display: grid;
+	grid-gap: 40px 20px;
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.main .grid-videos .video {
+	width: 100%;
+	display: block;
+}
+
+.main .grid-videos .video img {
+	width: 100%;
+}
+
+
+
+@media screen and (max-width: 1200px) {
+	.main .grid-videos {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.header .contenedor-logo .logo span {
+		display: none;
+	}
+
+	.header .barra-busqueda input {
+		min-width: 70%;
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.main .grid-videos {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.contenedor {
+		grid-template-rows: auto;
+	}
+
+	.header {
+		padding: 20px;
+		grid-template-columns: auto auto;
+		justify-content: space-between;
+		grid-template-areas: "logo iconos"
+							 "busqueda busqueda";
+	}
+
+	.header .contenedor-logo .logo span {
+		display: inline;
+	}
+
+	.header .barra-busqueda input {
+		min-width: auto;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.main .grid-videos {
+		grid-template-columns: 1fr;
+	}
+}
